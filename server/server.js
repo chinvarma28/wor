@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const {
   Pool
@@ -16,7 +17,7 @@ app.use(cors({
 
 
 const pool = new Pool({
-  connectionString:'postgresql://neondb_owner:HYAf2oi5CBwp@ep-hidden-sky-a1b9go6v.ap-southeast-1.aws.neon.tech/neondb?sslmode=require',
+  connectionString:process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
